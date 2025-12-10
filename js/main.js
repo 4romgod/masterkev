@@ -6,11 +6,13 @@
     if (nav && navToggle) {
         navToggle.addEventListener("click", function () {
             nav.classList.toggle("open");
+            navToggle.classList.toggle("open");
         });
 
         nav.querySelectorAll("a").forEach(function (link) {
             link.addEventListener("click", function () {
                 nav.classList.remove("open");
+                navToggle.classList.remove("open");
             });
         });
     }

@@ -147,22 +147,41 @@ img {
 
 .nav-toggle {
     display: none;
+    position: relative;
     flex-direction: column;
     gap: 6px;
-    width: 44px;
-    height: 44px;
+    width: 46px;
+    height: 46px;
     border: 1px solid var(--stroke);
     border-radius: 12px;
-    background: var(--card);
+    background: linear-gradient(145deg, rgba(15, 107, 168, 0.2), rgba(9, 18, 30, 0.8));
     padding: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
-.nav-toggle span {
+.nav-toggle:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+.nav-toggle .line {
     display: block;
     height: 3px;
     background: var(--text);
     border-radius: 6px;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle.open .top {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.nav-toggle.open .middle {
+    opacity: 0;
+}
+
+.nav-toggle.open .bottom {
+    transform: translateY(-9px) rotate(-45deg);
 }
 
 .hero {
