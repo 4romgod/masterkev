@@ -82,6 +82,11 @@ img {
     letter-spacing: 0.3px;
 }
 
+.brand-link {
+    color: inherit;
+    text-decoration: none;
+}
+
 .brand-mark {
     width: 52px;
     height: 52px;
@@ -166,6 +171,19 @@ img {
     overflow: hidden;
     background: var(--bg-alt);
     border-bottom: 1px solid var(--stroke);
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('../img/building.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.18;
+    filter: saturate(0.95) brightness(0.95);
+    pointer-events: none;
 }
 
 .hero::after {
@@ -425,9 +443,38 @@ img {
     font-weight: 800;
 }
 
+.icon-circle i {
+    font-size: 16px;
+}
+
 .panel-note {
     color: var(--muted);
     font-size: 14px;
+}
+
+.panel-list {
+    gap: 12px;
+}
+
+.panel-item {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--stroke);
+}
+
+.panel-item-title {
+    font-weight: 800;
+}
+
+.panel-item-copy {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 .floating-card {
@@ -441,6 +488,22 @@ img {
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     backdrop-filter: blur(6px);
+}
+
+.logo-watermark {
+    position: absolute;
+    top: -24px;
+    right: -14px;
+    width: 150px;
+    opacity: 0.16;
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.25));
+    pointer-events: none;
+}
+
+.logo-watermark img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
 .floating-label {
@@ -509,7 +572,7 @@ img {
 }
 
 .card-icon {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 800;
     letter-spacing: 0.5px;
     display: inline-flex;
@@ -522,6 +585,11 @@ img {
     margin-bottom: 12px;
     color: var(--text);
     border: 1px solid rgba(154, 198, 62, 0.25);
+}
+
+.card-icon i {
+    font-size: 22px;
+    color: inherit;
 }
 
 .card h3 {
@@ -591,14 +659,38 @@ img {
     font-weight: 700;
 }
 
-.project-image.placeholder {
-    background: repeating-linear-gradient(135deg, rgba(18, 104, 166, 0.08) 0, rgba(18, 104, 166, 0.08) 12px, rgba(154, 198, 62, 0.07) 12px, rgba(154, 198, 62, 0.07) 24px), linear-gradient(135deg, rgba(17, 29, 44, 0.7), rgba(10, 20, 33, 0.9));
-    color: var(--muted);
+.project-image.photo {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #f4f6fb;
+    align-items: flex-end;
+    justify-items: start;
 }
 
-.project-image small {
+.project-image.photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(12, 18, 28, 0.05) 0%, rgba(12, 18, 28, 0.7) 100%);
+}
+
+.project-overlay {
+    position: relative;
+    z-index: 1;
+    padding: 12px 14px;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(12, 18, 28, 0.1), rgba(12, 18, 28, 0.6));
+}
+
+.project-overlay span {
     display: block;
-    color: var(--text);
+    font-weight: 800;
+}
+
+.project-overlay small {
+    display: block;
+    color: #dbe6f5;
 }
 
 .project-body {
@@ -819,6 +911,18 @@ img {
     font-size: 18px;
 }
 
+.mark-only img {
+    width: 54px;
+    height: auto;
+    object-fit: contain;
+}
+
+.mark-only-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
 @media (max-width: 900px) {
     .nav {
         position: absolute;
@@ -863,17 +967,64 @@ img {
     }
 }
 
-@media (max-width: 640px) {
-    body {
-        background: var(--bg);
+@media (max-width: 900px) {
+    .hero {
+        padding: 100px 0 60px;
+    }
+
+    .hero-grid {
+        gap: 20px;
+    }
+
+    .hero-stats {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .header-inner {
+        padding: 14px 0;
     }
 
     .hero {
-        padding: 80px 0 40px;
+        padding: 80px 0 50px;
+    }
+
+    .hero-copy h1 {
+        font-size: clamp(28px, 6vw, 36px);
     }
 
     .hero-actions {
         flex-direction: column;
+        align-items: stretch;
+    }
+
+    .floating-card {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        margin-top: 14px;
+        width: 100%;
+    }
+
+    .logo-watermark {
+        display: none;
+    }
+
+    .project-image {
+        height: 200px;
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .approach-steps {
+        gap: 12px;
+    }
+
+    .step {
+        grid-template-columns: 60px 1fr;
     }
 
     .cta-content {
@@ -881,7 +1032,57 @@ img {
         align-items: flex-start;
     }
 
+    .contact-grid {
+        gap: 18px;
+    }
+}
+
+@media (max-width: 640px) {
+    body {
+        background: var(--bg);
+    }
+
+    .container {
+        padding: 0 18px;
+    }
+
+    .hero {
+        padding: 70px 0 40px;
+    }
+
+    .hero-stats {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
     .footer-meta {
         text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 14px;
+    }
+
+    .hero-actions .btn,
+    .cta-actions .btn,
+    .contact-form .btn {
+        width: 100%;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .step {
+        grid-template-columns: 50px 1fr;
     }
 }
