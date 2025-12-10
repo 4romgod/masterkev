@@ -32,6 +32,20 @@
         });
     });
 
+    var scrollTopBtn = document.querySelector(".scroll-top");
+    if (scrollTopBtn) {
+        var toggleScrollTop = function () {
+            if (window.scrollY > 240) {
+                scrollTopBtn.classList.add("show");
+            } else {
+                scrollTopBtn.classList.remove("show");
+            }
+        };
+
+        toggleScrollTop();
+        window.addEventListener("scroll", toggleScrollTop);
+    }
+
     var form = document.querySelector(".contact-form");
     if (form) {
         form.addEventListener("submit", function (e) {
