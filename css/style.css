@@ -5,6 +5,7 @@
     --bg-alt: #0e1c2d;
     --card: #111d2d;
     --text: #e8f0fa;
+    --text-dark: #0a1421;
     --muted: #9ab0c6;
     --primary: #9ac63e;
     --primary-strong: #b4dc63;
@@ -14,6 +15,9 @@
     --success: #7fe0b3;
     --danger: #ff7b9d;
     --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+    --surface-light: #ffffff;
+    --surface-muted: #f5f6fb;
+    --stroke-dark: rgba(15, 23, 42, 0.08);
     --radius: 14px;
     --radius-lg: 20px;
     --container: 1160px;
@@ -256,6 +260,18 @@ img {
     font-size: 12px;
 }
 
+.hero-visual .pill {
+    background: rgba(15, 23, 42, 0.08);
+    border-color: rgba(15, 23, 42, 0.2);
+    color: var(--text-dark);
+}
+
+.contact-card .pill.small {
+    background: rgba(15, 23, 42, 0.08);
+    border-color: transparent;
+    color: var(--text-dark);
+}
+
 .hero-actions {
     display: flex;
     gap: 12px;
@@ -364,9 +380,10 @@ img {
 .stat {
     padding: 16px;
     border-radius: var(--radius);
-    border: 1px solid var(--stroke);
-    background: #101c2c;
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--stroke-dark);
+    background: var(--surface-light);
+    color: var(--text-dark);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
 }
 
 .stat-value {
@@ -408,11 +425,12 @@ img {
 .visual-panel {
     position: relative;
     z-index: 2;
-    background: #0f1c2b;
-    border: 1px solid var(--stroke);
+    background: var(--surface-light);
+    border: 1px solid var(--stroke-dark);
     border-radius: var(--radius-lg);
     padding: 22px;
-    box-shadow: var(--shadow);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+    color: var(--text-dark);
 }
 
 .panel-header {
@@ -438,10 +456,10 @@ img {
 }
 
 .progress {
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--surface-muted);
     padding: 12px;
     border-radius: 12px;
-    border: 1px solid var(--stroke);
+    border: 1px solid var(--stroke-dark);
 }
 
 .progress-label {
@@ -453,7 +471,7 @@ img {
     width: 100%;
     height: 10px;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(15, 23, 42, 0.08);
     overflow: hidden;
 }
 
@@ -539,11 +557,12 @@ img {
     bottom: -30px;
     width: 260px;
     padding: 18px;
-    background: #0f1c2b;
-    border: 1px solid rgba(154, 198, 62, 0.35);
+    background: var(--surface-light);
+    border: 1px solid var(--stroke-dark);
     border-radius: var(--radius);
-    box-shadow: var(--shadow);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
     backdrop-filter: blur(6px);
+    color: var(--text-dark);
 }
 
 .logo-watermark {
@@ -798,21 +817,27 @@ img {
 }
 
 .cta-content {
-    background: #101c2c;
+    background: var(--surface-light);
     border-radius: var(--radius-lg);
-    border: 1px solid var(--stroke);
+    border: 1px solid var(--stroke-dark);
     padding: 28px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+    color: var(--text-dark);
 }
 
 .cta-actions {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+}
+
+.cta-content .btn.ghost {
+    color: var(--text-dark);
+    border-color: rgba(15, 23, 42, 0.08);
 }
 
 .about {
@@ -832,12 +857,13 @@ img {
 }
 
 .about-panel {
-    background: #101c2c;
-    border: 1px solid var(--stroke);
+    background: var(--surface-light);
+    border: 1px solid var(--stroke-dark);
     border-radius: var(--radius);
     padding: 18px;
     display: grid;
     gap: 10px;
+    color: var(--text-dark);
 }
 
 .about-row {
@@ -893,11 +919,12 @@ img {
 }
 
 .contact-card {
-    background: #101c2c;
-    border: 1px solid var(--stroke);
+    background: var(--surface-light);
+    border: 1px solid var(--stroke-dark);
     border-radius: var(--radius);
     padding: 20px;
-    box-shadow: 0 18px 34px rgba(0, 0, 0, 0.24);
+    box-shadow: 0 18px 34px rgba(0, 0, 0, 0.12);
+    color: var(--text-dark);
 }
 
 .contact-card-header h3 {
@@ -917,11 +944,11 @@ img {
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    border: 1px solid var(--stroke);
+    border: 1px solid var(--stroke-dark);
     border-radius: 12px;
     padding: 12px;
-    background: rgba(255, 255, 255, 0.04);
-    color: var(--text);
+    background: var(--surface-muted);
+    color: var(--text-dark);
     font-size: 16px;
 }
 
@@ -947,6 +974,12 @@ img {
     border-top: 1px solid var(--stroke);
     background: #0c1726;
     margin-top: auto;
+}
+
+main > section,
+.cta-panel,
+.site-footer {
+    padding-inline: clamp(24px, 4vw, 64px);
 }
 
 .footer-inner {
