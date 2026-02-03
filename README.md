@@ -1,6 +1,6 @@
-# Master Kev Enterprises
+# Master Kev Enterprise
 
-Static marketing site for Master Kev Enterprises (construction and related services, Cape Town), deployed via GitHub Pages with custom domain `masterkev.co.za`.
+Static marketing site for Master Kev Enterprise (construction and related services, Cape Town), deployed via GitHub Pages with custom domain `masterkev.com`.
 
 ## Overview
 - Single-page layout: hero, services, sectors, featured projects (placeholder imagery), delivery approach, CTA, about, and contact/intake form.
@@ -23,7 +23,7 @@ python -m http.server 8000
 
 ## Deployment
 - Push to `master` triggers `.github/workflows/static.yml` to deploy to GitHub Pages.
-- Keep `CNAME` at repo root with `masterkev.co.za`.
+- Keep `CNAME` at repo root with `masterkev.com`.
 - Ensure DNS points to GitHub Pages; enable Pages in repo settings (source: GitHub Actions).
 
 ## Assets & Content

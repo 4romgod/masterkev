@@ -1,8 +1,8 @@
 # Repository Guidelines
 
 ## Project Context
-- Site: Master Kev Enterprises — construction and related services based in Cape Town.
-- Static site deployed to GitHub Pages (same flow as jeanbean/philness); custom domain `masterkev.co.za` will be set via CNAME.
+- Site: Master Kev Enterprise — construction and related services based in Cape Town.
+- Static site deployed to GitHub Pages (same flow as jeanbean/philness); custom domain `masterkev.com` will be set via CNAME.
 
 ## Project Structure & Module Organization
 - Static marketing site layout: root HTML entry points (`index.html`, `about.html`, `contact.html`, etc.).
