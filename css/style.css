@@ -1197,3 +1197,165 @@ main > section,
         grid-template-columns: 50px 1fr;
     }
 }
+
+/* Modal styles */
+.project-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 20, 33, 0.95);
+    backdrop-filter: blur(8px);
+    z-index: 10000;
+    overflow-y: auto;
+    animation: fadeIn 0.3s ease;
+}
+
+.project-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.modal-content {
+    background: var(--card);
+    border-radius: var(--radius-lg);
+    max-width: 1000px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--stroke);
+    animation: slideUp 0.4s ease;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--stroke);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
+}
+
+.modal-close i {
+    font-size: 20px;
+    color: var(--text);
+}
+
+.modal-image {
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    position: relative;
+}
+
+.modal-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, var(--card));
+}
+
+.modal-body {
+    padding: 40px;
+}
+
+.modal-meta {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.modal-meta .pill {
+    background: var(--accent-soft);
+    color: var(--primary-strong);
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.modal-body h2 {
+    font-size: 32px;
+    margin: 0 0 16px 0;
+    color: var(--text);
+}
+
+.modal-body p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--muted);
+    margin: 0;
+}
+
+.project-card {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-image {
+        height: 300px;
+    }
+
+    .modal-body {
+        padding: 30px 24px;
+    }
+
+    .modal-body h2 {
+        font-size: 24px;
+    }
+
+    .modal-body p {
+        font-size: 16px;
+    }
+
+    .project-modal.active {
+        padding: 20px 12px;
+    }
+}

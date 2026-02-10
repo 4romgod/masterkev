@@ -57,4 +57,65 @@
             }
         });
     }
+
+    // Project modal functionality
+    var projectCards = document.querySelectorAll(".project-card");
+    var modal = document.createElement("div");
+    modal.className = "project-modal";
+    document.body.appendChild(modal);
+
+    projectCards.forEach(function (card) {
+        card.addEventListener("click", function () {
+            var image = card.querySelector(".project-image");
+            var title = card.querySelector(".project-body h3");
+            var description = card.querySelector(".project-body p");
+            var overlay = card.querySelector(".project-overlay");
+            
+            var imageUrl = image.style.backgroundImage.slice(5, -2);
+            var projectTitle = title ? title.textContent : "";
+            var projectDesc = description ? description.textContent : "";
+            var projectType = overlay ? overlay.querySelector("span").textContent : "";
+            var projectLocation = overlay ? overlay.querySelector("small").textContent : "";
+
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <button class="modal-close" aria-label="Close modal">
+                        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                    </button>
+                    <div class="modal-image" style="background-image: url('${imageUrl}');"></div>
+                    <div class="modal-body">
+                        <div class="modal-meta">
+                            <span class="pill">${projectType}</span>
+                            <span class="pill">${projectLocation}</span>
+                        </div>
+                        <h2>${projectTitle}</h2>
+                        <p>${projectDesc}</p>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.add("active");
+            document.body.style.overflow = "hidden";
+
+            var closeBtn = modal.querySelector(".modal-close");
+            closeBtn.addEventListener("click", function () {
+                modal.classList.remove("active");
+                document.body.style.overflow = "";
+            });
+
+            modal.addEventListener("click", function (e) {
+                if (e.target === modal) {
+                    modal.classList.remove("active");
+                    document.body.style.overflow = "";
+                }
+            });
+        });
+    });
+
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && modal.classList.contains("active")) {
+            modal.classList.remove("active");
+            document.body.style.overflow = "";
+        }
+    });
 })();
