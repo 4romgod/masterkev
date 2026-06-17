@@ -46,18 +46,6 @@
         window.addEventListener("scroll", toggleScrollTop);
     }
 
-    var form = document.querySelector(".contact-form");
-    if (form) {
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
-            var submitBtn = form.querySelector('button[type="submit"]');
-            if (submitBtn) {
-                submitBtn.textContent = "Request sent";
-                submitBtn.disabled = true;
-            }
-        });
-    }
-
     // Project modal functionality
     var projectCards = document.querySelectorAll(".project-card");
     var modal = document.createElement("div");
